@@ -327,7 +327,16 @@ npm run dev          # http://localhost:8090
 
 ### 环境要求
 
-Node ≥ 20（开发环境实测 v24.15.0）、npm ≥ 10。
+| 项 | 要求 | 说明 |
+|---|---|---|
+| **Node.js** | **≥ 20.19**（实测 v24.15.0） | Vite 8 与 Vitest 5 的下限；低于 20.19 会在启动时直接报错 |
+| **npm** | ≥ 10（实测 11.12.1） | 也可以用 pnpm / yarn，依赖树结构一致 |
+| **浏览器** | Chrome/Edge 105+ · Firefox 121+ · Safari 16.4+ | 底線来自 **Web Crypto API**（codec 工具的加解密依赖它）与 CSS `:has()` 以外的新特性 |
+| **操作系统** | Windows / macOS / Linux | 开发机为 Windows 11；`.gitattributes` 已锁定 LF 避免跨平台 diff 污染 |
+| **内存** | ≥ 4 GB | 跑全量测试（425 例）峰值约 1.2 GB |
+| **端口** | `8090`（dev） | 已在 `vite.config.ts` 固定，避开同机其他项目 |
+
+> **为什么 Node 版本卡得这么死**：`cron-parser` 锁定在 4.9.x（5.x 是破坏性变更），Vite 8 / TypeScript 6 / Vitest 5 都较新。**务必提交 `package-lock.json`，不要随意 `npm update`**，否则一次升级可能让整片工具链炸掉。
 
 ### 常用命令
 
@@ -472,6 +481,7 @@ src/tools/<id>/{index,core,use<Id>Tool,<Id>Tool}.vue
 | 文档 | 内容 |
 |---|---|
 | [README.md](./README.md) | 项目解析、功能清单、技术栈、隐私承诺（**你在这里**） |
+| [handoff.md](./handoff.md) | **移交文档** — 接手入口：当前状态、6 条红线、踩过的坑、下一步路线 |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | 架构决策、目录设计依据、维护难度评估、版本路线、风险登记 |
 | [CONTRIBUTING.md](./CONTRIBUTING.md) | 加工具 SOP、三层分离规范、质量红线、提交前自检清单 |
 | [docs/FILE-STRUCTURE.md](./docs/FILE-STRUCTURE.md) | **逐文件**职责、大小、设计理由（96 个文件全列） |

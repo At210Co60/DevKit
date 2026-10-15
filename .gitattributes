@@ -1,0 +1,18 @@
+# 统一换行：仓库内一律存 LF，检出时按平台处理
+# 不加这个，Windows 的 core.autocrlf=true 会让不同贡献者的文件互相污染 diff
+
+* text=auto eol=lf
+
+# 二进制文件不做任何转换
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+
+# 这些类型用 CRLF 更合适（历史惯例）
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf

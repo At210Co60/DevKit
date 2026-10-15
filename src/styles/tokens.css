@@ -1,0 +1,114 @@
+/**
+ * 设计 token —— 全站视觉的唯一来源
+ *
+ * 换肤 = 改这一个文件。深色主题在 prefers-color-scheme 与 [data-theme] 下覆盖同名变量。
+ */
+
+:root {
+  /* ── 品牌色 ── */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #dbeafe;
+  --primary-contrast: #ffffff;
+
+  /* ── 背景 ── */
+  --bg-page: #f5f7fb;
+  --bg-card: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-code: #1e293b;
+  --bg-code-fg: #e2e8f0;
+
+  /* ── 文字 ── */
+  --text-main: #1f2d3d;
+  --text-sub: #6b7a90;
+  --text-muted: #9aa6b8;
+
+  /* ── 线 ── */
+  --border: #e5e9f2;
+  --border-strong: #cbd5e1;
+
+  /* ── 语义色 ── */
+  --success: #16a34a;
+  --success-bg: #dcfce7;
+  --warning: #f08c2e;
+  --warning-bg: #fef3c7;
+  --danger: #dc2626;
+  --danger-bg: #fee2e2;
+  --info: #0891b2;
+  --info-bg: #cffafe;
+
+  /* ── Diff 三色 ── */
+  --diff-add: #16a34a;
+  --diff-add-bg: #dcfce7;
+  --diff-del: #dc2626;
+  --diff-del-bg: #fee2e2;
+  --diff-mod: #f08c2e;
+  --diff-mod-bg: #fef3c7;
+
+  /* ── 间距 ── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  /* ── 圆角 ── */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-full: 999px;
+
+  /* ── 阴影 ── */
+  --shadow-sm: 0 2px 6px rgba(16, 48, 95, 0.06);
+  --shadow-md: 0 4px 14px rgba(16, 48, 95, 0.08);
+  --shadow-lg: 0 12px 32px rgba(16, 48, 95, 0.14);
+
+  /* ── 尺寸 ── */
+  --header-h: 56px;
+  --sidebar-w: 200px;
+  --code-fg-size: 13px;
+
+  /* ── 动效 ── */
+  --t-fast: 120ms;
+  --t-normal: 220ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ══════════════ 深色主题 ══════════════ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --primary: #60a5fa;
+    --primary-hover: #93c5fd;
+    --primary-light: #1e3a5f;
+    --primary-contrast: #0b1220;
+
+    --bg-page: #0b1220;
+    --bg-card: #131c2e;
+    --bg-subtle: #1a2436;
+    --bg-code: #0f172a;
+    --bg-code-fg: #e2e8f0;
+
+    --text-main: #e6edf6;
+    --text-sub: #9fb0c6;
+    --text-muted: #6b7f99;
+
+    --border: #24334a;
+    --border-strong: #35465f;
+
+    --success-bg: #14342a;
+    --warning-bg: #3a2c14;
+    --danger-bg: #3a1c1c;
+    --info-bg: #10333c;
+
+    --diff-add-bg: #14342a;
+    --diff-del-bg: #3a1c1c;
+    --diff-mod-bg: #3a2c14;
+
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+  }
+}

@@ -1,0 +1,166 @@
+@import './tokens.css';
+@import './reset.css';
+
+/* ══════════════ 通用 UI 原子类 ══════════════
+ * 组件层不引入 UI 组件库，这些原子类就是替代品。
+ * 新增工具时直接复用，不要在工具内部再写一遍。
+ */
+
+/* ---- 按钮 ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-main);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition:
+    background var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  color: var(--primary-contrast);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover:not(:disabled) {
+  color: var(--primary-contrast);
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.btn-sm {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+/* ---- 卡片 ---- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- 输入 ---- */
+.input,
+.select {
+  width: 100%;
+  padding: 7px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.input:focus,
+.select:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* ---- 标签 ---- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--r-sm);
+}
+
+.tag-wip {
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+}
+
+.tag-beta {
+  color: var(--warning);
+  background: var(--warning-bg);
+}
+
+.tag-stable {
+  color: var(--success);
+  background: var(--success-bg);
+}
+
+/* ---- 提示条 ---- */
+.notice {
+  display: flex;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  font-size: 12.5px;
+  line-height: 1.6;
+  border-radius: var(--r-md);
+}
+
+.notice-info {
+  color: var(--info);
+  background: var(--info-bg);
+}
+
+.notice-warn {
+  color: var(--warning);
+  background: var(--warning-bg);
+}
+
+.notice-danger {
+  color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.notice-success {
+  color: var(--success);
+  background: var(--success-bg);
+}
+
+/* ---- 分段选择器 ---- */
+.segmented {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.segmented button {
+  padding: 4px 12px;
+  font-size: 12.5px;
+  color: var(--text-sub);
+  border-radius: calc(var(--r-md) - 3px);
+  transition:
+    background var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease);
+}
+
+.segmented button:hover {
+  color: var(--text-main);
+}
+
+.segmented button[aria-pressed='true'] {
+  color: var(--primary-contrast);
+  background: var(--primary);
+}
